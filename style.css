@@ -14,7 +14,7 @@
 	--desaturated-blue: hsl(235, 45%, 61%);
 	--pale-blue: hsl(236, 100%, 87%);
 
-	--bor-rad: 1rem;
+	--bor-rad: 15px;
 }
 
 * {
@@ -41,7 +41,6 @@ main {
 	display: flex;
 	flex-direction: column;
 	grid-gap: 30px;
-	/* align-items: center; */
 }
 
 img {
@@ -78,12 +77,13 @@ img {
 
 .card.user .info h1 {
 	font-size: 1.22rem;
-	font-weight: 300;
+	font-weight: 400;
 }
 
 .card.user .info div {
-	font-weight: 300;
-	font-size: 0.875rem;
+	font-weight: 400;
+	font-size: 0.75rem;
+	color: var(--pale-blue);
 }
 
 .card.user ul {
@@ -100,8 +100,17 @@ img {
 	cursor: pointer;
 }
 
+.card.user ul li:hover {
+	color: white;
+}
+
 .card.user ul li:active {
 	color: white;
+}
+
+.card:not(.user) {
+	max-width: 305px;
+	max-height: 150px;
 }
 
 .card.work {
@@ -110,22 +119,34 @@ img {
 	position: relative;
 }
 
-.card.work .img_wrapper {
-	background-color: var(--light-red-work);
-}
-
 .card.play {
+	background: rgb(0, 0, 0);
 	background: linear-gradient(0deg, hsl(235, 46%, 20%) 0%, var(--soft-blue-play) 45%);
 }
 
-.card.play .img_wrapper {
-	background-color: var(--soft-blue-play);
+.card.study {
+	background: rgb(0, 0, 0);
+	background: linear-gradient(0deg, hsl(235, 46%, 20%) 0%, var(--light-red-study) 45%);
+}
+
+.card.exercise {
+	background: rgb(0, 0, 0);
+	background: linear-gradient(0deg, hsl(235, 46%, 20%) 0%, var(--lime-green-exercise) 45%);
+}
+
+.card.social {
+	background: rgb(0, 0, 0);
+	background: linear-gradient(0deg, hsl(235, 46%, 20%) 0%, var(--violet-social) 45%);
+}
+
+.card.self-care {
+	background: rgb(0, 0, 0);
+	background: linear-gradient(0deg, hsl(235, 46%, 20%) 0%, var(--soft-orange-self-care) 45%);
 }
 
 .card .img_wrapper {
 	max-height: 35px;
 	width: 100%;
-	z-index: -1;
 	overflow: hidden;
 }
 
@@ -139,10 +160,42 @@ img {
 
 .card .stats {
 	width: 100%;
-	z-index: 2;
 	padding: 1rem;
 	background-color: var(--dark-blue);
 	border-radius: var(--bor-rad);
+}
+
+.card .stats .title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.card .stats .title img {
+	cursor: pointer;
+}
+
+.card .stats .title h2 {
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.card .stats .hours {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 0.5rem;
+}
+
+.card .stats .hours h3 {
+	font-size: 2rem;
+	font-weight: 300;
+}
+
+.card .stats .hours h4 {
+	font-size: 0.875rem;
+	font-weight: 400;
+	color: var(--pale-blue);
 }
 
 .attribution {
@@ -154,6 +207,10 @@ img {
 }
 
 @media (min-width: 1440px) {
+	body {
+		margin: 0;
+	}
+
 	main {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
@@ -161,13 +218,77 @@ img {
 		max-width: 1110px;
 		max-height: 515px;
 		grid-gap: 30px;
-		background-color: lightblue;
 		/* align-items: center; */
+	}
+
+	.card.user {
+		justify-content: flex-start;
+	}
+
+	.card.user .info {
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		padding: 2.25rem;
+	}
+
+	.card.user .info h1 {
+		font-size: 2.4375rem;
+		line-height: 1.2;
+		font-weight: 300;
+		margin: 2rem 0 4rem 0;
+	}
+
+	.info div {
+		font-size: 0.9375rem;
+		margin-bottom: 0.2rem;
+	}
+
+	.card.user ul {
+		height: 100%;
+		padding: 2rem 2.25rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.card.user ul li {
+		display: block;
+		font-size: 1.125rem;
 	}
 
 	.card.user {
 		grid-row: 1/3;
 		grid-column: 1;
+	}
+
+	.card:not(.user) {
+		max-height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.card .stats {
+		height: 100%;
+		padding: 2.25rem;
+	}
+
+	.card .stats .title {
+		margin-bottom: 2rem;
+	}
+
+	.card .stats .hours {
+		display: initial;
+	}
+
+	.card .stats .hours h3 {
+		margin-bottom: 0.7rem;
+		font-size: 3rem;
+	}
+
+	.card .stats .hours h4 {
+		font-size: 0.875rem;
 	}
 
 	.card.work,
