@@ -1,3 +1,199 @@
+:root {
+	/* Primary */
+	--blue: hsl(246, 80%, 60%);
+	--light-red-work: hsl(15, 100%, 70%);
+	--soft-blue-play: hsl(195, 74%, 62%);
+	--light-red-study: hsl(348, 100%, 68%);
+	--lime-green-exercise: hsl(145, 58%, 55%);
+	--violet-social: hsl(264, 64%, 52%);
+	--soft-orange-self-care: hsl(43, 84%, 65%);
+
+	/* Neutral */
+	--very-dark-blue: hsl(226, 43%, 10%);
+	--dark-blue: hsl(235, 46%, 20%);
+	--desaturated-blue: hsl(235, 45%, 61%);
+	--pale-blue: hsl(236, 100%, 87%);
+
+	--bor-rad: 1rem;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	min-height: 100vh;
+}
+
 body {
 	font-family: "Rubik", sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--very-dark-blue);
+	margin: 5rem 1rem;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	grid-gap: 30px;
+	/* align-items: center; */
+}
+
+img {
+	max-width: 100%;
+}
+
+.card {
+	background-color: var(--dark-blue);
+	border-radius: var(--bor-rad);
+	overflow: hidden;
+	color: white;
+}
+
+.card.user {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.card.user .info {
+	padding: 1.5rem;
+	background-color: var(--blue);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: var(--bor-rad);
+}
+
+.card.user .info img {
+	border-radius: 100%;
+	border: solid white 3px;
+	margin-right: 1rem;
+}
+
+.card.user .info h1 {
+	font-size: 1.22rem;
+	font-weight: 300;
+}
+
+.card.user .info div {
+	font-weight: 300;
+	font-size: 0.875rem;
+}
+
+.card.user ul {
+	color: var(--desaturated-blue);
+	margin: 0;
+	padding: 1rem;
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+}
+
+.card.user ul li {
+	display: inline-block;
+	cursor: pointer;
+}
+
+.card.user ul li:active {
+	color: white;
+}
+
+.card.work {
+	background: rgb(0, 0, 0);
+	background: linear-gradient(0deg, hsl(235, 46%, 20%) 0%, hsl(15, 100%, 70%) 45%);
+	position: relative;
+}
+
+.card.work .img_wrapper {
+	background-color: var(--light-red-work);
+}
+
+.card.play {
+	background: linear-gradient(0deg, hsl(235, 46%, 20%) 0%, var(--soft-blue-play) 45%);
+}
+
+.card.play .img_wrapper {
+	background-color: var(--soft-blue-play);
+}
+
+.card .img_wrapper {
+	max-height: 35px;
+	width: 100%;
+	z-index: -1;
+	overflow: hidden;
+}
+
+.card .img_wrapper img {
+	display: block;
+	margin-left: auto;
+	mix-blend-mode: darken;
+	margin-right: 0.8rem;
+	transform: translateY(-15%);
+}
+
+.card .stats {
+	width: 100%;
+	z-index: 2;
+	padding: 1rem;
+	background-color: var(--dark-blue);
+	border-radius: var(--bor-rad);
+}
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 1440px) {
+	main {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: 1fr 1fr;
+		max-width: 1110px;
+		max-height: 515px;
+		grid-gap: 30px;
+		background-color: lightblue;
+		/* align-items: center; */
+	}
+
+	.card.user {
+		grid-row: 1/3;
+		grid-column: 1;
+	}
+
+	.card.work,
+	.card.exercise {
+		grid-column: 2;
+	}
+
+	.card.play,
+	.card.social {
+		grid-column: 3;
+	}
+
+	.card.study,
+	.card.self-care {
+		grid-column: 4;
+	}
+
+	.card.work,
+	.card.play,
+	.card.study {
+		grid-row: 1;
+	}
+
+	.card.exercise,
+	.card.social,
+	.card.self-care {
+		grid-row: 2;
+	}
 }
