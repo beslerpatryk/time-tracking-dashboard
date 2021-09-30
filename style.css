@@ -98,14 +98,12 @@ img {
 .card.user ul li {
 	display: inline-block;
 	cursor: pointer;
+	transition: 0.3s ease-in;
 }
 
 .card.user ul li:hover {
 	color: white;
-}
-
-.card.user ul li:active {
-	color: white;
+	transition: 0.3s ease-in;
 }
 
 .card:not(.user) {
@@ -153,7 +151,6 @@ img {
 .card .img_wrapper img {
 	display: block;
 	margin-left: auto;
-	mix-blend-mode: darken;
 	margin-right: 0.8rem;
 	transform: translateY(-15%);
 }
@@ -163,6 +160,13 @@ img {
 	padding: 1rem;
 	background-color: var(--dark-blue);
 	border-radius: var(--bor-rad);
+	cursor: pointer;
+	transition: filter 0.3s ease-in;
+}
+
+.card .stats:hover {
+	filter: brightness(1.5);
+	transition: filter 0.3s ease-in;
 }
 
 .card .stats .title {
@@ -199,11 +203,7 @@ img {
 }
 
 .attribution {
-	font-size: 11px;
-	text-align: center;
-}
-.attribution a {
-	color: hsl(228, 45%, 44%);
+	display: none;
 }
 
 @media (min-width: 1440px) {
@@ -316,5 +316,20 @@ img {
 	.card.social,
 	.card.self-care {
 		grid-row: 2;
+	}
+
+	.attribution {
+		display: initial;
+		position: fixed;
+		bottom: 1rem;
+		right: 1rem;
+		color: white;
+		font-size: 0.6875rem;
+		text-align: center;
+	}
+	.attribution a {
+		margin-right: 0.5rem;
+		color: hsl(246, 72%, 62%);
+		text-decoration: none;
 	}
 }
