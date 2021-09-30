@@ -1,11 +1,31 @@
 const dailyHours = document.querySelectorAll(".daily");
 const weeklyHours = document.querySelectorAll(".weekly");
 const monthlyHours = document.querySelectorAll(".monthly");
+const currentHours = document.querySelectorAll(".current");
+const previousHours = document.querySelectorAll(".previous");
 const dailyBtn = document.getElementById("daily-btn");
 const weeklyBtn = document.getElementById("weekly-btn");
 const monthlyBtn = document.getElementById("monthly-btn");
 
-console.log("Hello World!");
+fetch("data.json")
+	.then((response) => response.json())
+	.then((json) => {
+		for (let i = 0; i < currentHours.length; i += 3) {
+			currentHours[i].innerHTML = `${json[Math.floor(i / 3)].timeframes.daily.current}`;
+			previousHours[i].innerHTML = `${json[Math.floor(i / 3)].timeframes.daily.previous}`;
+		}
+
+		for (let i = 1; i < currentHours.length; i += 3) {
+			currentHours[i].innerHTML = `${json[Math.floor(i / 3)].timeframes.weekly.current}`;
+			previousHours[i].innerHTML = `${json[Math.floor(i / 3)].timeframes.weekly.previous}`;
+		}
+
+		for (let i = 2; i < currentHours.length; i += 3) {
+			currentHours[i].innerHTML = `${json[Math.floor(i / 3)].timeframes.monthly.current}`;
+			previousHours[i].innerHTML = `${json[Math.floor(i / 3)].timeframes.monthly.previous}`;
+		}
+	});
+
 showDaily();
 hideWeekly();
 hideMonthly();
@@ -30,6 +50,7 @@ monthlyBtn.addEventListener("click", () => {
 
 function showDaily() {
 	dailyBtn.style.color = "white";
+
 	dailyHours.forEach((stat) => {
 		stat.style.display = null;
 	});
