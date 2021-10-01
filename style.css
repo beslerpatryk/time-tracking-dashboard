@@ -14,7 +14,7 @@
 	--desaturated-blue: hsl(235, 45%, 61%);
 	--pale-blue: hsl(236, 100%, 87%);
 
-	/* Miscalenious */
+	/* Miscellaneous */
 	--bor-rad: 15px;
 }
 
@@ -57,6 +57,7 @@ img {
 	color: white;
 	border-radius: var(--bor-rad);
 	overflow: hidden;
+	max-width: 305px;
 }
 
 /* User Card - General */
