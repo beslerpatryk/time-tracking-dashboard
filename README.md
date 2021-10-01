@@ -26,12 +26,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](.images/screenshot.png)
+![](images/screenshot.png)
 
 ### Links
 
--   [➡Solution Page](https://www.frontendmentor.io/solutions/-3column-preview-card-component-ffZ6IsyR9)
--   [➡Live Site](https://beslerpatryk.github.io/column_preview_card_component/)
+-   [Solution Page](https://www.frontendmentor.io/solutions/-3column-preview-card-component-ffZ6IsyR9)
+-   [Live Site](https://beslerpatryk.github.io/column_preview_card_component/)
 
 ## My process
 
