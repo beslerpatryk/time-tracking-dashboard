@@ -14,8 +14,11 @@
 	--desaturated-blue: hsl(235, 45%, 61%);
 	--pale-blue: hsl(236, 100%, 87%);
 
+	/* Miscalenious */
 	--bor-rad: 15px;
 }
+
+/* General */
 
 * {
 	box-sizing: border-box;
@@ -29,64 +32,70 @@ body {
 }
 
 body {
-	font-family: "Rubik", sans-serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background-color: var(--very-dark-blue);
 	margin: 5rem 1rem;
+	font-family: "Rubik", sans-serif;
 }
 
 main {
 	display: flex;
 	flex-direction: column;
-	grid-gap: 30px;
+	gap: 30px;
 }
 
 img {
 	max-width: 100%;
 }
 
+/* Card */
+
 .card {
 	background-color: var(--dark-blue);
+	color: white;
 	border-radius: var(--bor-rad);
 	overflow: hidden;
-	color: white;
 }
 
-.card.user {
+/* User Card - General */
+
+.user {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 
-.card.user .info {
-	padding: 1.5rem;
-	background-color: var(--blue);
+.info {
 	display: flex;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
+	background-color: var(--blue);
+	padding: 1.5rem;
 	border-radius: var(--bor-rad);
 }
 
-.card.user .info img {
-	border-radius: 100%;
-	border: solid white 3px;
+.info img {
 	margin-right: 1rem;
+	border: solid white 3px;
+	border-radius: 100%;
 }
 
-.card.user .info h1 {
+.info h1 {
 	font-size: 1.22rem;
 	font-weight: 400;
 }
 
-.card.user .info div {
+.info div {
+	color: var(--pale-blue);
 	font-weight: 400;
 	font-size: 0.75rem;
-	color: var(--pale-blue);
 }
 
-.card.user ul {
+/* User Card - Daily/Weekly/Monthly Selection */
+
+.user ul {
 	color: var(--desaturated-blue);
 	margin: 0;
 	padding: 1rem;
@@ -95,51 +104,55 @@ img {
 	justify-content: space-between;
 }
 
-.card.user ul li {
+.user ul li {
 	display: inline-block;
 	cursor: pointer;
 	transition: 0.3s ease-in;
 }
 
-.card.user ul li:hover {
+.user ul li:hover {
 	color: white;
 	transition: 0.3s ease-in;
 }
 
-.card:not(.user) {
-	max-width: 305px;
-	max-height: 150px;
-}
+/* Stats Cards - Background (gradient fixes the border-radius bleed)*/
 
-.card.work {
+.work {
 	background: rgb(0, 0, 0);
 	background: linear-gradient(0deg, hsl(235, 46%, 20%) 0%, hsl(15, 100%, 70%) 45%);
 	position: relative;
 }
 
-.card.play {
+.play {
 	background: rgb(0, 0, 0);
 	background: linear-gradient(0deg, hsl(235, 46%, 20%) 0%, var(--soft-blue-play) 45%);
 }
 
-.card.study {
+.study {
 	background: rgb(0, 0, 0);
 	background: linear-gradient(0deg, hsl(235, 46%, 20%) 0%, var(--light-red-study) 45%);
 }
 
-.card.exercise {
+.exercise {
 	background: rgb(0, 0, 0);
 	background: linear-gradient(0deg, hsl(235, 46%, 20%) 0%, var(--lime-green-exercise) 45%);
 }
 
-.card.social {
+.social {
 	background: rgb(0, 0, 0);
 	background: linear-gradient(0deg, hsl(235, 46%, 20%) 0%, var(--violet-social) 45%);
 }
 
-.card.self-care {
+.self-care {
 	background: rgb(0, 0, 0);
 	background: linear-gradient(0deg, hsl(235, 46%, 20%) 0%, var(--soft-orange-self-care) 45%);
+}
+
+/* Stats Cards - Size & AccentImage */
+
+.card:not(.user) {
+	max-width: 305px;
+	max-height: 150px;
 }
 
 .card .img_wrapper {
@@ -155,7 +168,9 @@ img {
 	transform: translateY(-15%);
 }
 
-.card .stats {
+/* Stats Cards - Statistics Inner Container */
+
+.stats {
 	width: 100%;
 	padding: 1rem;
 	background-color: var(--dark-blue);
@@ -164,39 +179,39 @@ img {
 	transition: filter 0.3s ease-in;
 }
 
-.card .stats:hover {
+.stats:hover {
 	filter: brightness(1.5);
 	transition: filter 0.3s ease-in;
 }
 
-.card .stats .title {
+.title {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 
-.card .stats .title img {
+.title img {
 	cursor: pointer;
 }
 
-.card .stats .title h2 {
+.title h2 {
 	font-size: 1rem;
 	font-weight: 500;
 }
 
-.card .stats .hours {
+.hours {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	margin-top: 0.5rem;
 }
 
-.card .stats .hours h3 {
+.hours h3 {
 	font-size: 2rem;
 	font-weight: 300;
 }
 
-.card .stats .hours h4 {
+.hours h4 {
 	font-size: 0.875rem;
 	font-weight: 400;
 	color: var(--pale-blue);
@@ -206,7 +221,7 @@ img {
 	display: none;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1100px) {
 	body {
 		margin: 0;
 	}
@@ -217,26 +232,29 @@ img {
 		grid-template-rows: 1fr 1fr;
 		max-width: 1110px;
 		max-height: 515px;
-		grid-gap: 30px;
-		/* align-items: center; */
+		gap: 30px;
 	}
 
-	.card.user {
-		justify-content: flex-start;
+	/* User Card - General */
+
+	.user {
+		grid-row: 1/3;
+		grid-column: 1;
 	}
 
-	.card.user .info {
+	.info {
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: flex-start;
 		padding: 2.25rem;
 	}
 
-	.card.user .info h1 {
-		font-size: 2.4375rem;
-		line-height: 1.2;
-		font-weight: 300;
+	.info h1 {
 		margin: 2rem 0 4rem 0;
+		font-size: 2.4375rem;
+		font-weight: 300;
+
+		line-height: 1.2;
 	}
 
 	.info div {
@@ -244,7 +262,7 @@ img {
 		margin-bottom: 0.2rem;
 	}
 
-	.card.user ul {
+	.user ul {
 		height: 100%;
 		padding: 2rem 2.25rem;
 		display: flex;
@@ -252,15 +270,12 @@ img {
 		justify-content: space-between;
 	}
 
-	.card.user ul li {
+	.user ul li {
 		display: block;
 		font-size: 1.125rem;
 	}
 
-	.card.user {
-		grid-row: 1/3;
-		grid-column: 1;
-	}
+	/* Stat Cards - General */
 
 	.card:not(.user) {
 		max-height: 100%;
@@ -269,53 +284,57 @@ img {
 		justify-content: space-between;
 	}
 
-	.card .stats {
+	/* Stat Cards - CSS Grid Layout */
+
+	.work,
+	.exercise {
+		grid-column: 2;
+	}
+
+	.play,
+	.social {
+		grid-column: 3;
+	}
+
+	.study,
+	.self-care {
+		grid-column: 4;
+	}
+
+	.work,
+	.play,
+	.study {
+		grid-row: 1;
+	}
+
+	.exercise,
+	.social,
+	.self-care {
+		grid-row: 2;
+	}
+
+	/* Stat Cards - General*/
+
+	.stats {
 		height: 100%;
 		padding: 2.25rem;
 	}
 
-	.card .stats .title {
+	.title {
 		margin-bottom: 2rem;
 	}
 
-	.card .stats .hours {
+	.hours {
 		display: initial;
 	}
 
-	.card .stats .hours h3 {
+	.hours h3 {
 		margin-bottom: 0.7rem;
 		font-size: 3rem;
 	}
 
-	.card .stats .hours h4 {
+	.hours h4 {
 		font-size: 0.875rem;
-	}
-
-	.card.work,
-	.card.exercise {
-		grid-column: 2;
-	}
-
-	.card.play,
-	.card.social {
-		grid-column: 3;
-	}
-
-	.card.study,
-	.card.self-care {
-		grid-column: 4;
-	}
-
-	.card.work,
-	.card.play,
-	.card.study {
-		grid-row: 1;
-	}
-
-	.card.exercise,
-	.card.social,
-	.card.self-care {
-		grid-row: 2;
 	}
 
 	.attribution {
